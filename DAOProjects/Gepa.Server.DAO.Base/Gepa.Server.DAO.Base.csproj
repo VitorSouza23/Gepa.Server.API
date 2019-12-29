@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\EntityProjects\Gepa.Service.Entity.Base\Gepa.Service.Entity.Base.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Gepa.Service.Entity.Base.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Gepa.Server.DAO.Base.Abstractions
 {
-    public interface IDAOCrud<TEntity> : IDAODelete<TEntity>, IDAOFinder<TEntity>, IDAOInserter<TEntity>, IDAOUpdater<TEntity>
+    public interface IDAOCrud<TEntity> : 
+        IDAODelete<TEntity>, 
+        IDAOFinder<TEntity>, 
+        IDAOInserter<TEntity>, 
+        IDAOUpdater<TEntity> where TEntity : IGepaEntity
     {
     }
 }
