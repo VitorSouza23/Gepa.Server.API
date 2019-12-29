@@ -1,0 +1,2 @@
+# Gepa.Server.API
+É um protótipo de um projeto focado em uma ferramenta que deve ajudar professores a gerenciar planos de aula. O lado do servidor (back-end) deve focar em prover uma API de CRUD para diferentes tipos de clientes (front-end). Estou usando este projeto para treinar diferentes tipos de parões e abordagens de desenvolvimento, com o intuito de aplicar boas práticas e focar na qualidade de código.
