@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EntityProjects\Gepa.Service.Entity.Base\Gepa.Service.Entity.Base.csproj" />
+    <ProjectReference Include="..\..\EntityProjects\Gepa.Service.Entity.Base\Gepa.Server.Entity.Base.csproj" />
   </ItemGroup>
 
 </Project>
