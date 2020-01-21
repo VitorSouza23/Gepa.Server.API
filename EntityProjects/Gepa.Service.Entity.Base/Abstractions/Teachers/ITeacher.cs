@@ -1,9 +1,7 @@
 ﻿using Gepa.Service.Entity.Base.Abstractions.Calendar;
 using Gepa.Service.Entity.Base.Abstractions.ClassPlans;
 using Gepa.Service.Entity.Base.Abstractions.SchoolClasses;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Gepa.Service.Entity.Base.Abstractions.Teachers
 {
