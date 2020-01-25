@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gepa.Server.Entity.Validator\Gepa.Server.Entity.Validator.csproj" />
     <ProjectReference Include="..\Gepa.Service.Entity.Base\Gepa.Server.Entity.Base.csproj" />
   </ItemGroup>
 

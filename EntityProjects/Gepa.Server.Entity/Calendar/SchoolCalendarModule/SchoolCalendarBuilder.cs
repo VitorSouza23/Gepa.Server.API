@@ -1,37 +1,9 @@
-﻿using Gepa.Server.Entity.Abstractions;
-using Gepa.Server.Entity.Attributes;
-using Gepa.Service.Entity.Base.Abstractions.Calendar;
+﻿using Gepa.Service.Entity.Base.Abstractions.Calendar;
 using System.Collections.Generic;
 
-namespace Gepa.Server.Entity.Calendar
+namespace Gepa.Server.Entity.Calendar.SchoolCalendarModule
 {
-    [Manufacturable(typeof(SchoolCalendar))]
-    public class SchoolCalendar : ISchoolCalendar
-    {
-        internal SchoolCalendar(long iD, string observation, string name, IList<ISchoolEvent> schoolEvents, long teacherID)
-        {
-            ID = iD;
-            Observation = observation;
-            Name = name;
-            SchoolEvents = schoolEvents;
-            TeacherID = teacherID;
-        }
-
-        [Manufacturer]
-        public static SchoolCalendarBuilder Factory => new SchoolCalendarBuilder();
-
-        public long ID { get; private set; }
-
-        public string Observation { get; private set; }
-
-        public string Name { get; private set; }
-
-        public IList<ISchoolEvent> SchoolEvents { get; private set; }
-
-        public long TeacherID { get; private set; }
-    }
-
-    public class SchoolCalendarBuilder : IBuilder<SchoolCalendar>
+    public class SchoolCalendarBuilder
     {
         private long _ID;
         private string _observation;
