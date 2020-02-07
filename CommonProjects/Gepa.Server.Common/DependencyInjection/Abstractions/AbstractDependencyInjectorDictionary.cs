@@ -1,8 +1,6 @@
 ﻿using Gepa.Server.Common.DependencyInjection.Exceptions;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Gepa.Server.Common.DependencyInjection.Abstractions
 {
@@ -27,7 +25,7 @@ namespace Gepa.Server.Common.DependencyInjection.Abstractions
         public Tout Inject<Tout>()
         {
             Type key = typeof(Tout);
-            if(_dependencies.TryGetValue(key, out object dependecyFactory))
+            if (_dependencies.TryGetValue(key, out object dependecyFactory))
             {
                 return (dependecyFactory as IDependencyFactory<Tout>).BuildDependency();
             }

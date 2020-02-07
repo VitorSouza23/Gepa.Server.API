@@ -19,7 +19,7 @@ namespace Gepa.Server.Entity.Calendar.SchoolCalendarModule
             TeacherID = teacherID;
 
             IEntityValidatorRuller<SchoolCalendar> entityValidatorRuller = new SchoolCalendarValidator();
-            if(entityValidatorRuller.CheckIfEntityIsValid(this) == false)
+            if (entityValidatorRuller.CheckIfEntityIsValid(this) == false)
             {
                 throw new RuleNotValidException();
             }
