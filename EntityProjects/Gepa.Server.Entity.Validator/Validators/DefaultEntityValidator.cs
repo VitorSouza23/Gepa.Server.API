@@ -8,7 +8,7 @@ namespace Gepa.Server.Entity.Validator.Validators
     {
         public bool CheckEntity(Tin entity, IEnumerable<ValidationRule<Tin>> validationRules)
         {
-            return !validationRules.Any(validationRule => validationRule(entity));
+            return !validationRules.Any(validationRule => validationRule(entity) == false);
         }
     }
 }

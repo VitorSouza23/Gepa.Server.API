@@ -1,7 +1,5 @@
 ﻿using Gepa.Server.Common.DependencyInjection.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Gepa.Server.Common.DependecyInjection.Factory
 {
@@ -14,6 +12,9 @@ namespace Gepa.Server.Common.DependecyInjection.Factory
             _dependencyBuilder = dependencyBuilder;
         }
 
-        public Tout BuildDependency() => _dependencyBuilder();
+        public Tout BuildDependency()
+        {
+            return _dependencyBuilder();
+        }
     }
 }
