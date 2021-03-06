@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Gepa.Server.Domain.Common;
 using Gepa.Server.Domain.Schools;
+using Gepa.Server.Domain.Students;
 
 namespace Gepa.Server.Domain.Classes
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Gepa.Server.Domain.Common;
 
-namespace Gepa.Server.Domain.Schools
+namespace Gepa.Server.Domain.Students
 {
     public record StudentNote(string Observation, decimal? QuantitativeGrade,
     string QualitativeNote, Guid StudentId)
