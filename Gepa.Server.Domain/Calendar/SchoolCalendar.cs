@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Gepa.Server.Doamin.Calendar;
 using Gepa.Server.Domain.Common;
 using Gepa.Server.Domain.Teachers;
 

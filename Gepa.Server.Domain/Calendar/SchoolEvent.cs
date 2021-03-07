@@ -1,8 +1,7 @@
 ﻿using System;
-using Gepa.Server.Domain.Calendar;
 using Gepa.Server.Domain.Common;
 
-namespace Gepa.Server.Doamin.Calendar
+namespace Gepa.Server.Domain.Calendar
 {
     public record SchoolEvent(Guid Id, string Observation, string Name, DateTime StartDate,
     DateTime EndDate, Guid SchoolCalendarId)
