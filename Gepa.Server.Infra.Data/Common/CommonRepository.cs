@@ -10,6 +10,7 @@ namespace Gepa.Server.Infra.Data.Common
     public sealed class CommonRepository<TEntity> : ICommonRepository<TEntity> where TEntity : Entity
     {
         private readonly MainContext _context;
+        public MainContext Context => _context;
 
         public CommonRepository(MainContext context)
         {

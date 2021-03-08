@@ -1,4 +1,9 @@
+using Gepa.Server.Domain.Common;
+
 namespace Gepa.Server.Domain.Students
 {
-    public interface IStudentRepository { }
+    public interface IStudentRepository : IRepository<Student>
+    {
+
+    }
 }

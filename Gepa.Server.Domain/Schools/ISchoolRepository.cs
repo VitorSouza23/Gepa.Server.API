@@ -1,6 +1,8 @@
+using Gepa.Server.Domain.Common;
+
 namespace Gepa.Server.Domain.Schools
 {
-    public interface ISchoolRepository
+    public interface ISchoolRepository : IRepository<School>
     {
 
     }
