@@ -7,7 +7,7 @@ using Gepa.Server.Infra.Data.Contexts;
 
 namespace Gepa.Server.Infra.Data.Repositories.Calendar
 {
-    public class SchoolCalendarRepository : IShcoolCalendarRepository
+    public class SchoolCalendarRepository : ISchoolCalendarRepository
     {
         private readonly ICommonRepository<SchoolCalendar> _common;
         private readonly MainContext _context;

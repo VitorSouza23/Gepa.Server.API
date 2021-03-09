@@ -1,14 +1,26 @@
-﻿using System;
-using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
-using Gepa.Server.Domain.Teachers;
-using Gepa.Server.Domain.Calendar;
-using Gepa.Server.Domain.ClassPlans;
-using Gepa.Server.Domain.Schools;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-//Simulações com o domínio
+namespace Gepa.Server.Apresentation
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-var teacher = new Teacher(Guid.NewGuid(), "Teste", new ReadOnlyCollection<ClassPlan>(new List<ClassPlan>()),
-new ReadOnlyCollection<School>(new List<School>()), new ReadOnlyCollection<SchoolCalendar>(new List<SchoolCalendar>()));
-
-Console.WriteLine(teacher.ToString());
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}

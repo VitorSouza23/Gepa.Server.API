@@ -5,7 +5,7 @@ using Gepa.Server.Domain.Common;
 
 namespace Gepa.Server.Domain.Calendar
 {
-    public interface IShcoolCalendarRepository : IRepository<SchoolCalendar>
+    public interface ISchoolCalendarRepository : IRepository<SchoolCalendar>
     {
     }
 }

@@ -5,7 +5,7 @@ using Gepa.Server.Domain.ClassPlans;
 using Gepa.Server.Infra.Data.Common;
 using Gepa.Server.Infra.Data.Contexts;
 
-namespace Gepa.Server.Infra.Data.Repositories.Classes
+namespace Gepa.Server.Infra.Data.Repositories.ClassPlans
 {
     public class ClassPlanRepository : IClassPlanRepository
     {
