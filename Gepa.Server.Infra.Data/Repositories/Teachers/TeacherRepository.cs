@@ -10,12 +10,10 @@ namespace Gepa.Server.Infra.Data.Repositories.Teachers
     public class TeacherRepository : ITeacherRepository
     {
         private readonly ICommonRepository<Teacher> _common;
-        private readonly MainContext _context;
 
         public TeacherRepository(ICommonRepository<Teacher> common)
         {
             _common = common;
-            _context = _common.Context;
         }
 
         public async Task<(Teacher, Exception)> AddAsync(Teacher entity)

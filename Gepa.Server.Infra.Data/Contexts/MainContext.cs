@@ -1,31 +1,16 @@
-using System;
-using Gepa.Server.Domain.Calendar;
-using Gepa.Server.Domain.Classes;
-using Gepa.Server.Domain.ClassPlans;
-using Gepa.Server.Domain.Schools;
-using Gepa.Server.Domain.Students;
-using Gepa.Server.Domain.Teachers;
-using Microsoft.EntityFrameworkCore;
+using Gepa.Server.Infra.Data.Settings;
+using MongoDB.Driver;
 
 namespace Gepa.Server.Infra.Data.Contexts
 {
-    public sealed class MainContext : DbContext
+    public sealed class MainContext
     {
-        public MainContext(DbContextOptions<MainContext> options)
-        : base(options)
+        private readonly IMongoDatabase _dataBase;
+        public IMongoDatabase Database => _dataBase;
+        public MainContext(IGepaMongoDBSettings gepaMongoDBSettings)
         {
+            var client = new MongoClient(gepaMongoDBSettings.ConnectionString);
+            _dataBase = client.GetDatabase(gepaMongoDBSettings.DatabaseName);
         }
-
-        public DbSet<SchoolEvent> SchoolEvents { get; set; }
-        public DbSet<SchoolCalendar> SchoolCalendars { get; set; }
-        public DbSet<ClassDiary> ClassDiaries { get; set; }
-        public DbSet<ClassPlan> ClassPlans { get; set; }
-        public DbSet<School> Schools { get; set; }
-        public DbSet<SchoolClass> SchoolClasses { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.LogTo(Console.WriteLine);
     }
 }

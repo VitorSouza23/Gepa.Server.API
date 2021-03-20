@@ -10,12 +10,9 @@ namespace Gepa.Server.Infra.Data.Repositories.Calendar
     public class SchoolCalendarRepository : ISchoolCalendarRepository
     {
         private readonly ICommonRepository<SchoolCalendar> _common;
-        private readonly MainContext _context;
-
         public SchoolCalendarRepository(ICommonRepository<SchoolCalendar> common)
         {
             _common = common;
-            _context = _common.Context;
         }
 
         public async Task<(SchoolCalendar, Exception)> AddAsync(SchoolCalendar schoolCalendar)

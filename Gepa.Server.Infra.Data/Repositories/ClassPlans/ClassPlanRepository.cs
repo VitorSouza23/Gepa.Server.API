@@ -10,12 +10,10 @@ namespace Gepa.Server.Infra.Data.Repositories.ClassPlans
     public class ClassPlanRepository : IClassPlanRepository
     {
         private readonly ICommonRepository<ClassPlan> _common;
-        private readonly MainContext _context;
 
         public ClassPlanRepository(ICommonRepository<ClassPlan> common)
         {
             _common = common;
-            _context = _common.Context;
         }
 
         public async Task<(ClassPlan, Exception)> AddAsync(ClassPlan entity)

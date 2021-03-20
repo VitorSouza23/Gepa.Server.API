@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Gepa.Server.Domain.Common;
 using Gepa.Server.Infra.Data.Contexts;
-using Microsoft.EntityFrameworkCore;
+using MongoDB.Driver;
 
 namespace Gepa.Server.Infra.Data.Common
 {
     public sealed class CommonRepository<TEntity> : ICommonRepository<TEntity> where TEntity : Entity
     {
-        private readonly MainContext _context;
-        public MainContext Context => _context;
+        private readonly IMongoCollection<TEntity> _collection;
+        public IMongoCollection<TEntity> Collection => _collection;
 
         public CommonRepository(MainContext context)
         {
-            _context = context;
+            var collectionName = typeof(TEntity).Name;
+            _collection = context.Database.GetCollection<TEntity>(collectionName);
         }
 
         public async Task<(TEntity, Exception)> AddAsync(TEntity entity)
@@ -22,8 +23,7 @@ namespace Gepa.Server.Infra.Data.Common
             (TEntity newEntity, Exception exception) = (null, null);
             try
             {
-                newEntity = _context.Set<TEntity>().Add(entity).Entity;
-                await _context.SaveChangesAsync();
+                await _collection.InsertOneAsync(entity);
             }
             catch (Exception ex) { exception = ex; }
             return (newEntity, exception);
@@ -34,8 +34,7 @@ namespace Gepa.Server.Infra.Data.Common
             (TEntity deletedEntity, Exception exception) = (null, null);
             try
             {
-                deletedEntity = _context.Set<TEntity>().Remove(entity).Entity;
-                await _context.SaveChangesAsync();
+                await _collection.DeleteOneAsync(t => t.Id == t.Id);
             }
             catch (Exception ex) { exception = ex; }
             return (deletedEntity, exception);
@@ -46,7 +45,7 @@ namespace Gepa.Server.Infra.Data.Common
             (IEnumerable<TEntity> entities, Exception exception) = (null, null);
             try
             {
-                entities = await _context.Set<TEntity>().ToListAsync();
+                entities = await _collection.Find(t => true).ToListAsync();
             }
             catch (Exception ex) { exception = ex; }
             return (entities, exception);
@@ -57,7 +56,7 @@ namespace Gepa.Server.Infra.Data.Common
             (TEntity entitie, Exception exception) = (null, null);
             try
             {
-                entitie = await _context.Set<TEntity>().FindAsync(id);
+                entitie = await _collection.Find(t => t.Id == id).FirstOrDefaultAsync();
             }
             catch (Exception ex) { exception = ex; }
             return (entitie, exception);
@@ -68,8 +67,7 @@ namespace Gepa.Server.Infra.Data.Common
             (TEntity updatedEntity, Exception exception) = (null, null);
             try
             {
-                updatedEntity = _context.Set<TEntity>().Update(entity).Entity;
-                await _context.SaveChangesAsync();
+                await _collection.ReplaceOneAsync(t => t.Id == entity.Id, entity);
             }
             catch (Exception ex) { exception = ex; }
             return (updatedEntity, exception);

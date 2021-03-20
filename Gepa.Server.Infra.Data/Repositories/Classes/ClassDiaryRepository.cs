@@ -10,12 +10,10 @@ namespace Gepa.Server.Infra.Data.Repositories.Classes
     public class ClassDiaryRepository : IClassDiaryRepository
     {
         private readonly ICommonRepository<ClassDiary> _common;
-        private readonly MainContext _context;
 
         public ClassDiaryRepository(ICommonRepository<ClassDiary> common)
         {
             _common = common;
-            _context = _common.Context;
         }
 
         public async Task<(ClassDiary, Exception)> AddAsync(ClassDiary entity)
