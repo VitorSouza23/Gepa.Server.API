@@ -2,14 +2,12 @@ using System;
 
 namespace Gepa.Server.Domain.Common
 {
-    public record Entity(Guid Id)
+    public class Entity
     {
-        public DateTime CreatedAt { get; } = DateTime.Now;
-        public DateTime UpdatedAt { get; init; } = DateTime.Now;
-    }
+        public Guid Id { get; set; }
+        public DateTime CreatedAt { get; protected set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; protected set; } = DateTime.Now;
 
-    public static class EntityExtensions
-    {
-        public static Entity Updated(this Entity Domain) => Domain with { UpdatedAt = DateTime.Now };
+        public void Updated() => UpdatedAt = DateTime.Now;
     }
 }
